@@ -1,0 +1,13 @@
+.flexList {
+    display: flex;
+    overflow-x: hidden;
+}
+.flexList img {
+    transform: scale(0.9);
+    width: 150px;
+    transition: all 0.2s;
+}
+
+.flexList img:hover{
+    transform: scale(1);
+}

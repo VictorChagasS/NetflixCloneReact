@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect, useState } from 'react';
+import './App.css'
+import {ItemsList} from './Services/API.js'
+import MovieGroup from './Components/MoviesGroup/index.js'
+const App = () => {
+  const [listMovie, setListMovie] = useState([])
+  useEffect(() => {
+    const loadList = async () => {
+      const listMovie = await ItemsList()
+      setListMovie(listMovie)
+    }
+    loadList()
+}, [])
+console.log(listMovie)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <div className='container'>
+      Header
+      Destaque
+      {listMovie.map(item => 
+      
+        <div>
+          <MovieGroup infos = {item} />
+        </div>)}
+  </div>
+  )
 }
 
-export default App;
+export default App
