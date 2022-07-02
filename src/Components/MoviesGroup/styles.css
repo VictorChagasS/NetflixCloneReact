@@ -1,6 +1,11 @@
+.containerGroupMovie {
+    padding: 0 30px;
+}
+
 .flexList {
     display: flex;
     overflow-x: hidden;
+    
 }
 .flexList img {
     transform: scale(0.9);

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css'
 import {ItemsList} from './Services/API.js'
-import MovieGroup from './Components/MoviesGroup/index.js'
+import MovieGroup from './Components/MoviesGroup'
+import MainMovie from './Components/MainMovie';
+import Header from './Components/Header';
 const App = () => {
   const [listMovie, setListMovie] = useState([])
   useEffect(() => {
@@ -11,17 +13,18 @@ const App = () => {
     }
     loadList()
 }, [])
+
 console.log(listMovie)
   return (
-   <div className='container'>
-      Header
-      Destaque
-      {listMovie.map(item => 
-      
-        <div>
-          <MovieGroup infos = {item} />
-        </div>)}
-  </div>
+   <>
+      <Header/>
+      <MainMovie/>
+      <div className='allGroups'>
+      {listMovie.map( (item, key) => 
+          <MovieGroup key={key} infos = {item} />
+      )}
+      </div>
+    </>
   )
 }
 
