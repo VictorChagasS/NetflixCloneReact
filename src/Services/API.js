@@ -8,6 +8,10 @@ const api = async (endpoint) => {
     return data
 }
 
+const fullTv = async(id) => {
+  return api(`tv/${id}?language=pt-BR`)
+}
+
 const ItemsList = async() => {
     return(
       [
@@ -26,4 +30,4 @@ const ItemsList = async() => {
     )
   } 
 
-export {ItemsList}
+export {ItemsList, fullTv}
